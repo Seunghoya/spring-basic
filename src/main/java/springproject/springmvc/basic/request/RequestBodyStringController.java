@@ -61,6 +61,7 @@ public class RequestBodyStringController {
     /**
      * @RequestBody
      * - 메시지 바디 정보를 직접 조회(@RequestParam X, @ModelAttribute X)
+     *      메시지 바디를 직접 조회하는 기능은 요청 파라미터를 조회하는 @RequestParam이나 @ModelAttribute와는 전혀 관계가 없다.
      * - HttpMessageConverter 사용 -> StringHttpMessageConverter 적용
      *
      * @ResponseBody
@@ -73,4 +74,13 @@ public class RequestBodyStringController {
         log.info("messageBody={}", messageBody);
         return "ok";
     }
+
+    /**
+    * 요청 파라미터 VS HTTP 메시지 바디
+    * - 요청 파라미터를 조회하는 기능: @RequestParam, @ModelAttribute
+    * - HTTP 메시지 바디를 조회하는 기능: @RequestBody
+    *
+    * @ResponseBody를 사용하면 응답 결과를 HTTP Message Body에 직접 담아서 전달한다.
+    * 이 경우 view를 사용하진 않는다.
+    */
 }

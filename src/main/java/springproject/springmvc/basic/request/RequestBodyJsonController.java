@@ -23,6 +23,7 @@ import java.nio.charset.StandardCharsets;
 @Slf4j
 @Controller
 public class RequestBodyJsonController {
+    // Json 받기 위한 ObjectMapper 사용
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @PostMapping("/request-body-json-v1")
@@ -60,8 +61,9 @@ public class RequestBodyJsonController {
     }
 
     /**
+     * @RequestBody를 사용하면 HttpMessageConverter에서 String이나 객체로 변환해준다.
      * @RequestBody 생략 불가능(@ModelAttribute 가 적용되어 버림)
-     * HttpMessageConverter 사용 -> MappingJackson2HttpMessageConverter (contenttype: application/json)
+     * HttpMessageConverter 사용 -> MappingJackson2HttpMessageConverter (contentType: application/json)
      */
     @ResponseBody
     @PostMapping("/request-body-json-v3")
